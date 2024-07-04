@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ProgressBar?>
+<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="de.rehpic.copynef24.HelloController" fx:id="root">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+    <HBox spacing="10.0">
+        <Button text="Select Jpgs" onAction="#onSelectJpgs"/>
+        <Button text="Select Nefs" onAction="#onSelectNefs"/>
+        <Button text="Copy" onAction="#onCopy"/>
+    </HBox>
+    <Label fx:id="state"/>
+    <HBox spacing="10.0">
+        <ProgressBar fx:id="progress" />
+    </HBox>
+    <HBox spacing="10.0">
+        <Label text="JPGs: "/>
+        <Label fx:id="jpgPath" />
+    </HBox>
+    <HBox spacing="10.0">
+        <Label text="NEFS: "/>
+        <Label fx:id="nefPath" />
+    </HBox>
+
+    <TextArea fx:id="messages" />
+</VBox>
