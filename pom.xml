@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.rehpic</groupId>
-    <artifactId>copynef24</artifactId>
+    <artifactId>copynef</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>copynef24</name>
+    <name>copynef</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -65,7 +65,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>de.rehpic.copynef24/de.rehpic.copynef24.HelloApplication</mainClass>
+                            <mainClass>de.rehpic.copynef/de.rehpic.copynef.CopyNefsApp</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

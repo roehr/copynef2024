@@ -1,10 +1,12 @@
-package de.rehpic.copynef24;
+package de.rehpic.copynef.controller;
 
+import de.rehpic.copynef.model.RawType;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
 
@@ -28,7 +30,18 @@ public class HelloController {
     private TextArea messages;
 
     @FXML
+    private ToggleButton arwButton;
+
+    @FXML
+    private ToggleButton nefButton;
+
+    @FXML
     ProgressBar progress;
+
+    private RawType rawType = RawType.NEF;
+
+
+
 
     @FXML
     public void onSelectJpgs() {
@@ -40,10 +53,22 @@ public class HelloController {
     }
 
     @FXML
-    public void onSelectNefs() {
+    public void setARW() {
+        rawType=RawType.ARW;
+        nefButton.setSelected(false);
+    }
+
+    @FXML
+    public void setNEF() {
+        rawType=RawType.NEF;
+        arwButton.setSelected(false);
+    }
+
+    @FXML
+    public void onSelectRaws() {
         directoryChooser = new DirectoryChooser();
         pathToRaws = directoryChooser.showDialog(root.getScene().getWindow());
-        state.setText("Selected NEF Folder");
+        state.setText("Selected RAW Folder");
         nefPath.setText(pathToRaws.getAbsolutePath());
         progress.setProgress(0);
     }
@@ -59,6 +84,10 @@ public class HelloController {
     private void copyFiles () {
         File[] directoryListing = pathToJpgs.listFiles();
         Platform.runLater(() -> progress.setProgress(0));
+        String rawFileEnding = ".NEF";
+        if (rawType == RawType.ARW){
+            rawFileEnding = ".ARW";
+        }
         if (directoryListing != null) {
             int progressCount = 0;
             String rawFolder = pathToJpgs +"/raw";
@@ -68,7 +97,7 @@ public class HelloController {
             }
             for (File child : directoryListing) {
                 progressCount++;
-                String fileToCopy= child.getName().replace(".JPG", ".NEF");
+                String fileToCopy= child.getName().replace(".JPG", rawFileEnding);
 
                 try{
                     File file=new File(pathToRaws +"/"+ fileToCopy);

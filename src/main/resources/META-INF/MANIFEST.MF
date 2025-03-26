@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: de.rehpic.copynef24.Launcher
+Main-Class: de.rehpic.copynef.Launcher
 

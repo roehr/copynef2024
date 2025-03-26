@@ -8,15 +8,18 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ToggleButton?>
 <VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="de.rehpic.copynef24.HelloController" fx:id="root">
+      fx:controller="de.rehpic.copynef.controller.HelloController" fx:id="root">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <HBox spacing="10.0">
         <Button text="Select Jpgs" onAction="#onSelectJpgs"/>
-        <Button text="Select Nefs" onAction="#onSelectNefs"/>
+        <Button text="Select Raw Folder" onAction="#onSelectRaws"/>
         <Button text="Copy" onAction="#onCopy"/>
+        <ToggleButton text="ARW" onAction="#setARW" fx:id="arwButton" />
+        <ToggleButton text="NEF" onAction="#setNEF" fx:id="nefButton" selected="true"/>
     </HBox>
     <Label fx:id="state"/>
     <HBox spacing="10.0">
@@ -27,7 +30,7 @@
         <Label fx:id="jpgPath" />
     </HBox>
     <HBox spacing="10.0">
-        <Label text="NEFS: "/>
+        <Label text="RAWS: "/>
         <Label fx:id="nefPath" />
     </HBox>
 
