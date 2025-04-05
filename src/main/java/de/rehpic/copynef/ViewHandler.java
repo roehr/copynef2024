@@ -18,11 +18,12 @@ public class ViewHandler {
     public static void setResources(ResourceBundle resources) {
         ViewHandler.resources = resources;
     }
-
     public static ResourceBundle getResources() {
         return resources;
     }
-
+    public static Scene getScene() {
+        return scene;
+    }
     static public void switchToView(ViewType view){
         if(scene == null){
             System.out.println("ViewSwitcher: Scene is null");
