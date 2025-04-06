@@ -2,7 +2,7 @@ module de.rehpic.copynef {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.apache.commons.io;
-    requires java.desktop;
+    requires com.fasterxml.jackson.databind;
 
 
     opens de.rehpic.copynef to javafx.fxml;
